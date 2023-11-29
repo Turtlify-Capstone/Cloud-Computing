@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "turtlify-testing",
+  "private_key_id": "e25592355668558738e884db478bee01fbbabe5a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIdtatIZ9lUFPy\nnMJA6PrVGE0AqW/9lso1GRJU8QrHFRkErjYmzCIDkVPv/AFtIgfAM9K+Wp3tiBiy\n6a4uILZUJtQh8QeE+RzfCay7eZ+amChkeKzk4+Qn6l/4TN0+iqp/BN1aORAX2g7s\nBCR60iWfOa7FvLTMVjyDRT4Zm9zAF+wY22DNyWpRn/qB2+Qh4ykNJMPHqyW3TwWb\nmrVTHyfPjzz8LYPk+53yfs7Rd7NCf6v3Sg7TjL2EVYErF9SnQpCqWyC5TmGI4aHY\nuJ77XzgyRrBcLJHp6cXubBBU6fISPjAjle5kM0gTJKn73dMLXpWHFCdBq4GOEcOl\nnn5QwGfvAgMBAAECggEAIL7TenHPk8EiCrNzQnR25MWUw9LpqZwuvlWwxOdK7Lzp\nhUuKf56WFSHG0EtzVYcFim6XXON4gLXb3aiGUfVN/e5fIIblb4yHHCJ8cMir5Zji\noDwwzILdYMJ27XHA14KB2esgLVNnlD3ZH3yIaPetkEDf57UCOOQCpn7HvMR/tBuU\n5L1llIxyOJD1Q2dwW1pOEu0JXpNsD4MX+sbMrIpJx2FY8bc7qK/cfoT8gFA6y7qG\nA+GioRsXNntZACz036b3sezYuZucnb1qqEbWVqJ3HSrRATcKPs8Dhg/1GlQN325+\nwOfVK38TPiHf/LqaiBokGc36yQOdxZERvQjKF/H4AQKBgQDpB8KfYJKVwtYCDkQZ\nYYTTjc3ck2uRvfNCzW+3UjYOaRbsCOYWqYGXjnwVEs/1wqvV7scgSeAUg/fXr/nu\nIndZoHaj2GcFKiP/iZoJgXI63oW8BtyX0zx8bX/TqX8rf4QNSOqOhJjOaBUznmJd\nYsZzNP6/+Y6tVA7XaKPOhfFe7wKBgQDcOU/cMeSAlPZXfYYqZtZQFFtLzwc9LaMh\nZMFfTHg0biSky/5APs3aTSVgHlKpehawGNg58VJKxvn4yfO5Y0FUmyUeL9dt38rK\n8/1s4lP3X6HhArLlMSSK9+2IRtNyicI/DejcnxBBLAm8ewJRBb6U8kjySjkr4WaD\ns+ErCjGHAQKBgQDCImrraAL2rRipIcVt96Y2sJ5eMpqdEkhE0O1PJjhOjRJBlbBK\nFPEXl+abj86ciY+qbICLz7/Ul5S0pbBryV7w1hPAsBozXUYcL0CaxrKphJSZboX8\nHkj3yCmD5mNBk7wpbSOrk5/R5Tg0hrCf6Bg4BmBtArTwhWTP5CcDeOb7FQKBgEib\nIKhBTsvR0PIBcYVzSD84puz0gbd632i4FkT8KjlnAu/OTbISwr2xZ5wsAybbGLXQ\nSyG3XWFH/sw2kQNTJQvm5rLwJP+Vo/+Lt8b5S6OoRO+xexezPxAOM6MVbss5ffBZ\n/qcWTj6ebUtV5uqdkTr8Mm6nZ/f+pVTQrnEJOFEBAoGBAMpypSpn0pDbviEEcArd\nC5vU6FZv68obvN8vGzr/olbwvUyylwtH399RXyefrwq5B6lHsALkmpuOKjyAqCgg\nuAuVMG6Vv/EbSmdE1F5mArQc6E9p3nscYKRAK0LLczcUe9z6393MRqhvb+k3EnNU\nuLOL2yz+3WhfPAhyw49RzdQU\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-database@turtlify-testing.iam.gserviceaccount.com",
+  "client_id": "102378636792682725518",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-database%40turtlify-testing.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
