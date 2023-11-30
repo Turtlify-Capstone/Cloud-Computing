@@ -9,7 +9,6 @@ const app = express();
 app.use(express.json());
 
 const processFile = require("./upload");
-// const processFileMiddleware = require('./upload');
 const storage = new Storage({ keyFilename: "./Requirement/testing-pic-key.json" });
 const bucket = storage.bucket("fotopenyutest");
 
