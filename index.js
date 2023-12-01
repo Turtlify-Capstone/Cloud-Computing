@@ -111,6 +111,29 @@ app.post('/upload', async(req, res) => {
     });
   }
 });
+
+app.get('/download/:filename', async (req, res) => {
+  try {
+      const file = bucket.file(req.params.filename);
+      const exists = (await file.exists())[0];
+
+      if (!exists) {
+          return res.status(404).send({ message: 'File not found.' });
+      }
+
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
+
+      // Option 1: Redirect to the public URL
+      res.redirect(publicUrl);
+
+      // Option 2: Stream the file directly to the client
+      // file.createReadStream().pipe(res);
+  } catch (err) {
+      console.error(err);
+      res.status(500).send({ message: `Unable to retrieve file. Error: ${err.message}` });
+  }
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
