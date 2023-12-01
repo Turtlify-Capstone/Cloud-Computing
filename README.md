@@ -1,6 +1,6 @@
 # Cloud-Computing
 
-Send Feedback To Email (POST): /FeedbackEmail
-Send Feedback To Database (POST): /AddFeedback
-Fetch Data From Database (GET): /data
-Upload Image (POST): /upload
+* Send Feedback To Email (POST): /FeedbackEmail
+* Send Feedback To Database (POST): /AddFeedback
+* Fetch Data From Database (GET): /data
+* Upload Image (POST): /upload
