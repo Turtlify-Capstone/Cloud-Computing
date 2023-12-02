@@ -29,10 +29,10 @@ To add an email to the system, make a POST request to the `/AddEmail` endpoint w
 
 Expected json input for`/AddEmail` endpoint:
 
-```bash
+```json
 {
-  "email": "example@email.com",
-  "text": "Sample text associated with the email"
+  "userEmail": "example@email.com",
+  "userMessage": "Sample text associated with the email"
 }
 
 
