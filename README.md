@@ -30,12 +30,11 @@ To add an email to the system, make a POST request to the `/AddEmail` endpoint w
 Here's an example of how to call the `/AddEmail` endpoint using `curl`:
 
 ```bash
-curl -X POST /AddEmail \
--H 'Content-Type: application/json' \
--d '{
+{
   "email": "example@email.com",
   "text": "Sample text associated with the email"
-}'
+}
+
 
 
 
