@@ -6,13 +6,13 @@
 * Upload Image (POST): /upload
 * Fetch image from cloud storage bucket: /download/{filename}
 
-# AddEmail API
+# FeedbackEmail API
 
-Welcome to the AddEmail API documentation! This API allows you to add an email along with associated text to your system, making communiaction through email easier.
+Welcome to the FeedbackEmail API documentation! This API allows you to add an email along with associated text to your system, making communiaction through email easier.
 
 ## Getting Started
 
-Before you start using the AddEmail API, ensure you have the necessary environment to make HTTP requests.
+Before you start using the FeedbackEmail API, ensure you have the necessary environment to make HTTP requests.
 
 ### Prerequisites
 - Nodemailer (Node.js module to handle sending messages through email with various method)
@@ -21,11 +21,11 @@ Before you start using the AddEmail API, ensure you have the necessary environme
 
 ### Making a Request
 
-To send feedback message to the developer email, make a POST request to the `/AddEmail` endpoint with the following format:
+To send feedback message to the developer email, make a POST request to the `/FeedbackEmail` endpoint with the following format:
 
 ### Contoh
 
-Json input expected for`/AddEmail` endpoint:
+Json input expected for`/FeedbackEmail` endpoint:
 
 ```json
 {
