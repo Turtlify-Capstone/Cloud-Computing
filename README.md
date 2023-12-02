@@ -32,7 +32,33 @@ Json input expected for`/AddEmail` endpoint:
   "userEmail": "example@email.com",
   "userMessage": "Sample text associated with the email"
 }
+```
 
+# File Upload API
 
+## Description
 
+This API provides a simple and efficient way to upload files to a server. It's built with Node.js and uses the Multer middleware for handling `multipart/form-data`, suitable for uploading files up to 2MB in size. The files are temporarily stored in memory and then uploaded to a Google Cloud Storage bucket.
 
+## Getting Started
+Before you start using the File Upload API, make sure you have the necessary environment to handle HTTP file upload requests.
+
+### Prerequisites
+
+- Node.js
+- Access to Google Cloud Storage
+- Multer (Node.js middleware for handling multipart/form-data)
+  
+## Request Format
+- The request should be made with multipart/form-data encoding.
+- Include the file data in the field named "file".
+- The file size must not exceed 2MB.
+  
+## Expected Output
+```json
+{
+  "message": "Uploaded the file successfully: [file name]",
+  "url": "https://storage.googleapis.com/[bucket-name]/[file name]"
+}
+```
+## Example
