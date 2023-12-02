@@ -27,7 +27,7 @@ To add an email to the system, make a POST request to the `/AddEmail` endpoint w
 
 ### Example
 
-Here's an example of how to call the `/AddEmail` endpoint using `curl`:
+Expected json input for`/AddEmail` endpoint:
 
 ```bash
 {
