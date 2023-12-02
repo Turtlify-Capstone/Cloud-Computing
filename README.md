@@ -22,15 +22,20 @@ Before you start using the FeedbackEmail API, ensure you have the necessary envi
 ### Making a Request
 
 To send feedback message to the developer email, make a POST request to the `/FeedbackEmail` endpoint with the following format:
-
-### Contoh
+```json
+{
+  "userEmail": "example@email.com",
+  "userMessage": "Sample text associated with the email"
+}
+```
+### Example
 
 Json input expected for`/FeedbackEmail` endpoint:
 
 ```json
 {
-  "userEmail": "example@email.com",
-  "userMessage": "Sample text associated with the email"
+  "userEmail": "testingcapstone@gmail.com",
+  "userMessage": "Hello, this is a test message."
 }
 ```
 
