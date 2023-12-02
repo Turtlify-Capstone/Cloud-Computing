@@ -62,3 +62,4 @@ Before you start using the File Upload API, make sure you have the necessary env
 }
 ```
 ## Example
+![Upload Example](Readme-Img/Upload.png)
