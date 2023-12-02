@@ -1,4 +1,4 @@
-# Cloud-Computing
+# Cloud-Computing API Documentation
 
 * Send Feedback To Email (POST): /FeedbackEmail
 * Send Feedback To Database (POST): /AddFeedback
@@ -8,26 +8,24 @@
 
 # AddEmail API
 
-Welcome to the AddEmail API documentation! This API allows you to add an email along with associated text to your system, making email management and processing easier.
+Welcome to the AddEmail API documentation! This API allows you to add an email along with associated text to your system, making communiaction through email easier.
 
 ## Getting Started
 
 Before you start using the AddEmail API, ensure you have the necessary environment to make HTTP requests.
 
 ### Prerequisites
-
-- HTTP client (like `curl`, Postman, or any programming language with HTTP request capabilities)
+- Nodemailer (Node.js module to handle sending messages through email with various method)
 
 ## Using the API
 
 ### Making a Request
 
-To add an email to the system, make a POST request to the `/AddEmail` endpoint with the following format:
+To send feedback message to the developer email, make a POST request to the `/AddEmail` endpoint with the following format:
 
+### Contoh
 
-### Example
-
-Expected json input for`/AddEmail` endpoint:
+Json input expected for`/AddEmail` endpoint:
 
 ```json
 {
