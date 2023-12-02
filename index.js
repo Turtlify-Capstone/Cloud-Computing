@@ -4,6 +4,15 @@ const mysql = require('mysql2/promise');
 const { spawn } = require('child_process');
 const { Storage } = require("@google-cloud/storage");
 const { format } = require("util");
+const nodemailer = require('nodemailer');
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'baihaqirafli30@gmail.com',
+    pass: 'fifb cpmg jewb fuli'
+  }
+});
 
 const app = express();
 app.use(express.json());
@@ -112,6 +121,57 @@ app.post('/upload', async(req, res) => {
   }
 });
 
+app.post('/AddFeedback', async (req, res) => {
+  try {
+    
+    const { Email, Pesan } = req.body;
+
+    
+    if (!Email || !Pesan) {
+      return res.status(400).send({ message: "Missing data fields" });
+    }
+
+   
+    const pool = await mysql.createPool(dbConfig);
+    const query = 'INSERT INTO FormFeedbackUser (Email, Pesan) VALUES (?, ?)';
+    const [result] = await pool.execute(query, [Email, Pesan]);
+
+    
+    res.status(200).send({ message: "Data added successfully", id: result.insertId });
+
+  
+    await pool.end();
+  } catch (error) {
+    console.error('Error inserting data:', error);
+    res.status(500).send('Error inserting data');
+  }
+});
+
+app.post('/FeedbackEmail', async (req, res) => {
+  try {
+    const { userEmail, userMessage } = req.body;
+
+    let mailOptions = {
+      from: userEmail, 
+      to: 'baihaqirafli30@gmail.com', 
+      subject: 'New Message from User',
+      text: `Message from ${userEmail}: ${userMessage}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).send({ message: 'Error sending email' });
+      }
+      res.status(200).send({ message: 'Email sent successfully to you' });
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Error processing request');
+  }
+});
+
 app.get('/download/:filename', async (req, res) => {
   try {
       const file = bucket.file(req.params.filename);
@@ -123,16 +183,14 @@ app.get('/download/:filename', async (req, res) => {
 
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
 
-      // Option 1: Redirect to the public URL
       res.redirect(publicUrl);
 
-      // Option 2: Stream the file directly to the client
-      // file.createReadStream().pipe(res);
   } catch (err) {
       console.error(err);
       res.status(500).send({ message: `Unable to retrieve file. Error: ${err.message}` });
   }
 });
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
