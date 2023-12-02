@@ -17,12 +17,25 @@ Before you start using the AddEmail API, ensure you have the necessary environme
 ### Prerequisites
 
 - HTTP client (like `curl`, Postman, or any programming language with HTTP request capabilities)
-- API key (if authentication is required)
 
 ## Using the API
 
 ### Making a Request
 
 To add an email to the system, make a POST request to the `/AddEmail` endpoint with the following format:
+
+
+### Example
+
+Here's an example of how to call the `/AddEmail` endpoint using `curl`:
+
+```bash
+curl -X POST /AddEmail \
+-H 'Content-Type: application/json' \
+-d '{
+  "email": "example@email.com",
+  "text": "Sample text associated with the email"
+}'
+
 
 
