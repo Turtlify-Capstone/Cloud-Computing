@@ -1,10 +1,11 @@
 {
   "name": "capstone",
   "version": "1.0.0",
-  "description": "",
+  "description": "* Send Feedback To Email (POST): /FeedbackEmail\r * Send Feedback To Database (POST): /AddFeedback\r * Fetch Data From Database (GET): /data\r * Upload Image (POST): /upload",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "multer": "^1.4.5-lts.1",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "nodemailer": "^6.9.7"
   }
 }

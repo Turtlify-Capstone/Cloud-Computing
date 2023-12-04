@@ -180,17 +180,37 @@ app.get('/download/:filename', async (req, res) => {
       if (!exists) {
           return res.status(404).send({ message: 'File not found.' });
       }
-
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
-
       res.redirect(publicUrl);
-
   } catch (err) {
       console.error(err);
       res.status(500).send({ message: `Unable to retrieve file. Error: ${err.message}` });
   }
 });
 
+app.get('/search', async (req, res) => {
+  try {
+      const nameToSearch = req.query.nama_lokal;
+      
+      if (!nameToSearch) {
+          return res.status(400).send({ message: "Please provide a name to search." });
+      }
+
+      const pool = await mysql.createPool(dbConfig);
+      const query = 'SELECT * FROM penyutest WHERE nama_lokal LIKE ?'; // Assuming the column you want to search is 'name'
+      const [rows] = await pool.query(query, [`%${nameToSearch}%`]); 
+      
+      if (rows.length === 0) {
+          return res.status(404).send({ message: "No matching records found." });
+      }
+
+      res.json(rows);
+      await pool.end();
+  } catch (error) {
+      console.error('Error searching data:', error);
+      res.status(500).send('Error searching data');
+  }
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
