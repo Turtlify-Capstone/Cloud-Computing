@@ -1,18 +1,18 @@
 # Cloud-Computing API Documentation
 
-* Send Feedback To Email (POST): /FeedbackEmail
+* Send Feedback To Email (POST): [/FeedbackEmail](#feedbackemail-api)
 * Send Feedback To Database (POST): /AddFeedback
 * Fetch Data From Database (GET): /data
 * Upload Image (POST): /upload
 * Fetch image from cloud storage bucket: /download/{filename}
 * Fetch database by name: /search?nama_lokal=VALUE
 
-# Cloud Run API URL
+## Cloud Run API URL
 https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
 
-# FeedbackEmail API
+## FeedbackEmail API
 
-Welcome to the FeedbackEmail API documentation! This API allows you to add an email along with associated text to your system, making communiaction through email easier.
+Welcome to the FeedbackEmail API documentation! This API allows you to send an email along with associated text to others, making communiaction through email easier.
 
 ## Getting Started
 
@@ -20,10 +20,11 @@ Before you start using the FeedbackEmail API, ensure you have the necessary envi
 
 ### Prerequisites
 - Nodemailer (Node.js module to handle sending messages through email with various method)
+- Node.js
 
 ## Using the API
 
-### Making a Request
+## Making a Request
 
 To send feedback message to the developer email, make a POST request to the `/FeedbackEmail` endpoint with the following format:
 
@@ -33,7 +34,7 @@ To send feedback message to the developer email, make a POST request to the `/Fe
   "userMessage": "Sample text associated with the email"
 }
 ```
-### Example
+## Example
 
 Json input expected for`/FeedbackEmail` endpoint:
 
@@ -41,6 +42,72 @@ Json input expected for`/FeedbackEmail` endpoint:
 {
   "userEmail": "testingcapstone@gmail.com",
   "userMessage": "Hello, this is a test message."
+}
+```
+
+## AddFeedback API
+
+Welcome to the FeedbackEmail API documentation! This API allows you to add an email along with associated text to your database, making communiaction through email easier.
+
+## Getting Started
+
+Before you start using the FeedbackEmail API, ensure you have the necessary environment to make HTTP requests.
+
+### Prerequisites
+- Nodemailer (Node.js module to handle sending messages through email with various method)
+- Access to cloud SQL
+
+## Using the API
+
+## Making a Request
+
+To send feedback message to the developer email, make a POST request to the `/AddFeedback` endpoint with the following format:
+
+```json
+{
+    "Email": "example@email.com",
+  "Pesan": "Sample text associated with the email"
+}
+```
+## Example
+
+Json input expected for`/AddFeedback` endpoint:
+
+```json
+{
+    "Email": "1234@gmail.com",
+    "Pesan": "Testing post feedback user!"
+}
+```
+
+# Data API
+
+Welcome to the Data API documentation! This API allows you to fetch all data from certain table inside database.
+
+## Getting Started
+
+Before you start using the Data API, ensure you have the necessary environment to make HTTP requests.
+
+### Prerequisites
+- Node.js
+- Access to cloud SQL
+  
+## Using the API
+
+## Making a Request
+
+To fetch data from the database, make a POST request to the `/data` endpoint
+
+## Expected Output
+```json
+{
+  "id": 1,
+  "nama_lokal": "Tuntong laut, tuntung, tuntung semangka, beluku, tum-tum",
+  "nama_latin": "Batagur borneoensis",
+  "status_konversi":,
+  "habitat":,
+  "description":,
+  "image":
 }
 ```
 
