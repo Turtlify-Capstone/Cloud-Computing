@@ -68,3 +68,6 @@ Before you start using the File Upload API, make sure you have the necessary env
 ```
 ## Example
 ![Upload Example](Readme-Img/Upload.png)
+
+## Cloud Run API URL
+https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
