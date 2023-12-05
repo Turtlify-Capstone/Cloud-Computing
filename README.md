@@ -5,6 +5,10 @@
 * Fetch Data From Database (GET): /data
 * Upload Image (POST): /upload
 * Fetch image from cloud storage bucket: /download/{filename}
+* Fetch database by name: /search?nama_lokal=VALUE
+
+# Cloud Run API URL
+https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
 
 # FeedbackEmail API
 
@@ -22,6 +26,7 @@ Before you start using the FeedbackEmail API, ensure you have the necessary envi
 ### Making a Request
 
 To send feedback message to the developer email, make a POST request to the `/FeedbackEmail` endpoint with the following format:
+
 ```json
 {
   "userEmail": "example@email.com",
@@ -69,5 +74,34 @@ Before you start using the File Upload API, make sure you have the necessary env
 ## Example
 ![Upload Example](Readme-Img/Upload.png)
 
-## Cloud Run API URL
-https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
+# Search API
+
+## Description
+
+This API provides a simple and way to fetch data from database table using certain parameter. 
+
+## Getting Started
+Before you start using the File Upload API, make sure you have the necessary environment to handle HTTP file upload requests.
+
+### Prerequisites
+
+- Node.js
+- Access to Google Cloud Storage
+  
+## Request Format
+- The request should be made with nama_lokal parameter with the value of the data inside nama_lokal that exists inside database.
+
+## Expected Output
+```json
+{
+  "id": 1,
+  "nama_lokal": "Tuntong laut, tuntung, tuntung semangka, beluku, tum-tum",
+  "nama_latin": "Batagur borneoensis",
+  "status_konversi":,
+  "habitat":,
+  "description":,
+  "image":
+}
+```
+## Example
+![Upload Example](Readme-Img/Searchbyname.png)
