@@ -213,7 +213,7 @@ app.get('/search', async (req, res) => {
       }
 
       const pool = await mysql.createPool(dbConfig);
-      const query = 'SELECT * FROM DeskripsiPenyu WHERE nama_lokal LIKE ?'; // Assuming the column you want to search is 'name'
+      const query = 'SELECT * FROM DeskripsiPenyu WHERE nama_lokal LIKE ?';
       const [rows] = await pool.query(query, [`%${nameToSearch}%`]); 
       
       if (rows.length === 0) {
