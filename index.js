@@ -29,31 +29,31 @@ const dbConfig = {
     port: process.env.DB_PORT
 };
 
-function startCloudSqlProxy() {
-    const proxyPath = './Requirement/cloud-sql-proxy.exe'; // Adjust if necessary
-    const credentials = process.env.CLOUD_SQL_CREDENTIALS_PATH;
-    const instanceConnectionName = process.env.CLOUD_SQL_INSTANCE_NAME;
+// function startCloudSqlProxy() {
+//     const proxyPath = './Requirement/cloud-sql-proxy.exe'; // Adjust if necessary
+//     const credentials = process.env.CLOUD_SQL_CREDENTIALS_PATH;
+//     const instanceConnectionName = process.env.CLOUD_SQL_INSTANCE_NAME;
   
-    const proxy = spawn(proxyPath, [
-        `--credentials-file=${credentials}`,
-        instanceConnectionName
-      ]);
+//     const proxy = spawn(proxyPath, [
+//         `--credentials-file=${credentials}`,
+//         instanceConnectionName
+//       ]);
       
   
-    proxy.stdout.on('data', (data) => {
-      console.log(`Cloud SQL Proxy: ${data}`);
-    });
+//     proxy.stdout.on('data', (data) => {
+//       console.log(`Cloud SQL Proxy: ${data}`);
+//     });
   
-    proxy.stderr.on('data', (data) => {
-      console.error(`Cloud SQL Proxy Error: ${data}`);
-    });
+//     proxy.stderr.on('data', (data) => {
+//       console.error(`Cloud SQL Proxy Error: ${data}`);
+//     });
   
-    proxy.on('close', (code) => {
-      console.log(`Cloud SQL Proxy process exited with code ${code}`);
-    });
-}
+//     proxy.on('close', (code) => {
+//       console.log(`Cloud SQL Proxy process exited with code ${code}`);
+//     });
+// }
   
-startCloudSqlProxy();
+// startCloudSqlProxy();
  
 app.get('/data', async (req, res) => {
   try {
