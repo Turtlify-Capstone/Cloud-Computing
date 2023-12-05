@@ -7,14 +7,14 @@
 * Fetch image from cloud storage bucket: /download/{filename}
 * Fetch database by name: /search?nama_lokal=VALUE
 
-## Cloud Run API URL
+# Cloud Run API URL
 https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
 
-## FeedbackEmail API
+# FeedbackEmail API
 
 Welcome to the FeedbackEmail API documentation! This API allows you to send an email along with associated text to others, making communiaction through email easier.
 
-## Getting Started
+### Getting Started
 
 Before you start using the FeedbackEmail API, ensure you have the necessary environment to make HTTP requests.
 
@@ -22,9 +22,9 @@ Before you start using the FeedbackEmail API, ensure you have the necessary envi
 - Nodemailer (Node.js module to handle sending messages through email with various method)
 - Node.js
 
-## Using the API
+### Using the API
 
-## Making a Request
+### Making a Request
 
 To send feedback message to the developer email, make a POST request to the `/FeedbackEmail` endpoint with the following format:
 
@@ -34,7 +34,7 @@ To send feedback message to the developer email, make a POST request to the `/Fe
   "userMessage": "Sample text associated with the email"
 }
 ```
-## Example
+### Example
 
 Json input expected for`/FeedbackEmail` endpoint:
 
@@ -45,11 +45,11 @@ Json input expected for`/FeedbackEmail` endpoint:
 }
 ```
 
-## AddFeedback API
+# AddFeedback API
 
 Welcome to the FeedbackEmail API documentation! This API allows you to add an email along with associated text to your database, making communiaction through email easier.
 
-## Getting Started
+### Getting Started
 
 Before you start using the FeedbackEmail API, ensure you have the necessary environment to make HTTP requests.
 
@@ -57,9 +57,9 @@ Before you start using the FeedbackEmail API, ensure you have the necessary envi
 - Nodemailer (Node.js module to handle sending messages through email with various method)
 - Access to cloud SQL
 
-## Using the API
+### Using the API
 
-## Making a Request
+### Making a Request
 
 To send feedback message to the developer email, make a POST request to the `/AddFeedback` endpoint with the following format:
 
@@ -69,7 +69,7 @@ To send feedback message to the developer email, make a POST request to the `/Ad
   "Pesan": "Sample text associated with the email"
 }
 ```
-## Example
+### Example
 
 Json input expected for`/AddFeedback` endpoint:
 
@@ -84,7 +84,7 @@ Json input expected for`/AddFeedback` endpoint:
 
 Welcome to the Data API documentation! This API allows you to fetch all data from certain table inside database.
 
-## Getting Started
+### Getting Started
 
 Before you start using the Data API, ensure you have the necessary environment to make HTTP requests.
 
@@ -92,13 +92,13 @@ Before you start using the Data API, ensure you have the necessary environment t
 - Node.js
 - Access to cloud SQL
   
-## Using the API
+### Using the API
 
-## Making a Request
+### Making a Request
 
 To fetch data from the database, make a POST request to the `/data` endpoint
 
-## Expected Output
+### Expected Output
 ```json
 {
   "id": 1,
@@ -113,7 +113,7 @@ To fetch data from the database, make a POST request to the `/data` endpoint
 
 # File Upload API
 
-## Description
+### Description
 
 This API provides a simple and efficient way to upload files to a server. It's built with Node.js and uses the Multer middleware for handling `multipart/form-data`, suitable for uploading files up to 2MB in size. The files are temporarily stored in memory and then uploaded to a Google Cloud Storage bucket.
 
@@ -126,28 +126,28 @@ Before you start using the File Upload API, make sure you have the necessary env
 - Access to Google Cloud Storage
 - Multer (Node.js middleware for handling multipart/form-data)
   
-## Request Format
+### Request Format
 - The request should be made with multipart/form-data encoding.
 - Include the file data in the field named "file".
 - The file size must not exceed 2MB.
   
-## Expected Output
+### Expected Output
 ```json
 {
   "message": "Uploaded the file successfully: [file name]",
   "url": "https://storage.googleapis.com/[bucket-name]/[file name]"
 }
 ```
-## Example
+### Example
 ![Upload Example](Readme-Img/Upload.png)
 
 # Search API
 
-## Description
+### Description
 
 This API provides a simple and way to fetch data from database table using certain parameter. 
 
-## Getting Started
+### Getting Started
 Before you start using the File Upload API, make sure you have the necessary environment to handle HTTP file upload requests.
 
 ### Prerequisites
@@ -155,10 +155,10 @@ Before you start using the File Upload API, make sure you have the necessary env
 - Node.js
 - Access to Google Cloud Storage
   
-## Request Format
+### Request Format
 - The request should be made with nama_lokal parameter with the value of the data inside nama_lokal that exists inside database.
 
-## Expected Output
+### Expected Output
 ```json
 {
   "id": 1,
@@ -170,5 +170,5 @@ Before you start using the File Upload API, make sure you have the necessary env
   "image":
 }
 ```
-## Example
+### Example
 ![Upload Example](Readme-Img/Searchbyname.png)
