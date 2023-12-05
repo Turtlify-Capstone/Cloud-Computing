@@ -1,8 +1,8 @@
 # Cloud-Computing API Documentation
 
 * Send Feedback To Email (POST): [/FeedbackEmail](#feedbackemail-api)
-* Send Feedback To Database (POST): /AddFeedback
-* Fetch Data From Database (GET): /data
+* Send Feedback To Database (POST): [/AddFeedback](#addfeedback-api)
+* Fetch Data From Database (GET): [/data](#addfeedback-api)
 * Upload Image (POST): /upload
 * Fetch image from cloud storage bucket: /download/{filename}
 * Fetch database by name: /search?nama_lokal=VALUE
