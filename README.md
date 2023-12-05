@@ -5,7 +5,7 @@
 * Fetch Data From Database (GET): [/data](#data-api)
 * Upload Image (POST): [/upload](#file-upload-api)
 * Fetch image from cloud storage bucket: /download/{filename}
-* Fetch database by name: /search?nama_lokal=VALUE
+* Fetch database by name: [/search?nama_lokal=VALUE](#search-api)
 
 # Cloud Run API URL
 https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
