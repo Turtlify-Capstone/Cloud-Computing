@@ -2,8 +2,8 @@
 
 * Send Feedback To Email (POST): [/FeedbackEmail](#feedbackemail-api)
 * Send Feedback To Database (POST): [/AddFeedback](#addfeedback-api)
-* Fetch Data From Database (GET): [/data](#addfeedback-api)
-* Upload Image (POST): /upload
+* Fetch Data From Database (GET): [/data](#data-api)
+* Upload Image (POST): [/upload](#file-upload-api)
 * Fetch image from cloud storage bucket: /download/{filename}
 * Fetch database by name: /search?nama_lokal=VALUE
 
