@@ -184,19 +184,23 @@ app.post('/FeedbackEmail', async (req, res) => {
   }
 });
 
-app.get('/download/:filename', async (req, res) => {
+app.get('/download/latest', async (req, res) => {
   try {
-      const file = bucket.file(req.params.filename);
-      const exists = (await file.exists())[0];
+      const [files] = await bucket.getFiles();
 
-      if (!exists) {
-          return res.status(404).send({ message: 'File not found.' });
+      const sortedFiles = files.sort((a, b) => b.metadata.timeCreated.localeCompare(a.metadata.timeCreated));
+
+      const latestFile = sortedFiles[0];
+      if (!latestFile) {
+          return res.status(404).send({ message: 'No files found in the bucket.' });
       }
-      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
+
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${latestFile.name}`;
+
       res.redirect(publicUrl);
   } catch (err) {
-      console.error(err);
-      res.status(500).send({ message: `Unable to retrieve file. Error: ${err.message}` });
+      console.error('Error retrieving the latest file:', err);
+      res.status(500).send({ message: `Unable to retrieve the latest file. Error: ${err.message}` });
   }
 });
 
