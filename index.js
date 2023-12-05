@@ -18,8 +18,8 @@ const app = express();
 app.use(express.json());
 
 const processFile = require("./upload");
-const storage = new Storage({ keyFilename: "./Requirement/testing-pic-key.json" });
-const bucket = storage.bucket("fotopenyutest");
+const storage = new Storage({ keyFilename: "./Requirement/turtlify-key.json" });
+const bucket = storage.bucket("turtlifystorage");
 
 const dbConfig = {
     host: process.env.DB_HOST,
@@ -58,7 +58,19 @@ startCloudSqlProxy();
 app.get('/data', async (req, res) => {
   try {
     const pool = await mysql.createPool(dbConfig);
-    const [rows] = await pool.query('SELECT * FROM penyutest'); 
+    const [rows] = await pool.query('SELECT * FROM DeskripsiPenyu'); 
+    res.json(rows);
+    await pool.end();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).send('Error fetching data');
+  }
+});
+
+app.get('/FeedbackData', async (req, res) => {
+  try {
+    const pool = await mysql.createPool(dbConfig);
+    const [rows] = await pool.query('SELECT * FROM FormFeedbackUser'); 
     res.json(rows);
     await pool.end();
   } catch (error) {
@@ -197,7 +209,7 @@ app.get('/search', async (req, res) => {
       }
 
       const pool = await mysql.createPool(dbConfig);
-      const query = 'SELECT * FROM penyutest WHERE nama_lokal LIKE ?'; // Assuming the column you want to search is 'name'
+      const query = 'SELECT * FROM DeskripsiPenyu WHERE nama_lokal LIKE ?'; // Assuming the column you want to search is 'name'
       const [rows] = await pool.query(query, [`%${nameToSearch}%`]); 
       
       if (rows.length === 0) {
