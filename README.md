@@ -184,9 +184,9 @@ Before you start using the File Upload API, make sure you have the necessary env
   "status_konversi":,
   "habitat":,
   "description":,
-  "image":
-  "Persebaran_Habitat":
-  "Latitude":
+  "image":,
+  "Persebaran_Habitat":,
+  "Latitude":,
   "Longitude":
 }
 ```
