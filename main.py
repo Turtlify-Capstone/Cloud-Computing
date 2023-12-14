@@ -57,12 +57,12 @@ def create_db_connection():
         return None
 
 # Function to get plant data from database
-def get_plant_data(science_name):
+def get_turtle_data(nama_lokal):
     conn = create_db_connection()
     if conn is not None:
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM Plants WHERE scienceName = %s", (science_name,))
+            cursor.execute("SELECT * FROM Plants WHERE scienceName = %s", (nama_lokal,))
             row = cursor.fetchone()
             return row
         except Error as e:
