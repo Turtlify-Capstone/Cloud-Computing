@@ -1,8 +1,8 @@
-name: Auto Deploy Backend API for deploy
+name: Auto Deploy Model API for deploy
 
 on:
   push:
-    branches: [ "Backend" ]
+    branches: [ "ML" ]
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # TODO: update Google Cloud project id
