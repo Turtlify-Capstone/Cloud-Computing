@@ -185,6 +185,9 @@ Before you start using the File Upload API, make sure you have the necessary env
   "habitat":,
   "description":,
   "image":
+  "Persebaran_Habitat":
+  "Latitude":
+  "Longitude":
 }
 ```
 ### Example
