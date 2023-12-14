@@ -12,7 +12,7 @@ import mysql.connector
 from mysql.connector import Error
 
 # Load TensorFlow model from URL
-url = "github link"
+url = "https://storage.googleapis.com/turtlifystorage/model_4_kelas.h5"
 response = requests.get(url)
 model_content = response.content
 with h5py.File(io.BytesIO(model_content), "r") as f:
@@ -36,10 +36,7 @@ def predict(x):
 
 # Function to get class name from prediction
 def getClass(id):
-    classes = ["Aloevera", "Anthuriumandreanum", "Araucariaheterophylla", "Bamboo",
-               "Bostonfern", "Chlorophytumcomosum", "Croton", "Dieffenbachia",
-               "Epipremnum", "Euphorbiamilii", "Monsteradeliciosa", "Dracaenatrifasciata",
-               "Spathiphyllum", "Phalaenopsisamabilis", ""]
+    classes = ["Tuntong Laut", "Tidak Dilindungi", "Kura-kura Rote", "Kura-kura moncong babi", ""]
     return classes[id] if 0 <= id < len(classes) else ""
 
 # Function to create database connection
@@ -62,7 +59,7 @@ def get_turtle_data(nama_lokal):
     if conn is not None:
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM Plants WHERE scienceName = %s", (nama_lokal,))
+            cursor.execute("SELECT * FROM DeskripsiPenyu WHERE nama_lokal = %s", (nama_lokal,))
             row = cursor.fetchone()
             return row
         except Error as e:
@@ -86,16 +83,16 @@ def main():
             image_bytes = file.read()
             tensor = transform_image(image_bytes)
             prediction = predict(tensor)
-            plant_id = getClass(prediction)
-            plant_data = get_plant_data(plant_id)
-            if plant_data:
+            turtle_id = getClass(prediction)
+            turtle_data = get_turtle_data(turtle_id)
+            if turtle_data:
                 return jsonify({
                     'response': 200,
                     'status': 'success',
-                    'data': plant_data
+                    'data': turtle_data
                 })
             else:
-                return jsonify({'response': 404, 'status': 'error', 'message': 'Plant not found'})
+                return jsonify({'response': 404, 'status': 'error', 'message': 'Turtle not found'})
         except Exception as e:
             return jsonify({"error": str(e)})
     return "HELLO WORLD"
