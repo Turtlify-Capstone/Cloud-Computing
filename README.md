@@ -7,6 +7,20 @@
 * Fetch image from cloud storage bucket: [/download/latest](#fetch-image-api)
 * Fetch database by name: [/search?nama_lokal=VALUE](#search-api)
 
+# Cara Menggunakan MySql
+1. Login menggunakan email bangkit di cloud.console.google.com
+2. Setelah login pilih cloud overview dashboard
+  ![Upload Example](Readme-Img/Sql4.png)
+3. Pilih project dan pilih Turtlify
+   ![Upload Example](Readme-Img/Sql5.png)
+4. Pilih bagian SQL
+![Upload Example](Readme-Img/Sql1.png)
+5. Pilih instance Turtlify
+![Upload Example](Readme-Img/Sql2.png)
+6. Kemudian nyalakan instance dengan menekan start dan tunggu hingga proses menyalakan isntance selesai
+![Upload Example](Readme-Img/Sql3.png)
+
+
 # Cloud Run API URL
 https://turtlify-test-cloudrun-r7ear3dsma-et.a.run.app
 
