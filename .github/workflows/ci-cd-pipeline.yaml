@@ -9,6 +9,10 @@ env:
   SERVICE: ${{ secrets.GCP_SERVICE_NAME_MODEL }} # TODO: update Cloud Run service name
   REGION: ${{ secrets.GCP_REGION }} # TODO: update Cloud Run service region
   REPOSITORY: ${{ secrets.GCP_ARTIFACT_REPOSITORY }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  DB_USER: ${{ secrets.DB_USER }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_NAME: ${{ secrets.DB_NAME }}
 
 jobs:
   deploy:

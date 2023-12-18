@@ -41,12 +41,16 @@ def getClass(id):
 
 # Function to create database connection
 def create_db_connection():
+    host = os.getenv("DB_HOST")
+    user = os.getenv("DB_USER")
+    password = os.getenv("DB_PASSWORD")
+    database = os.getenv("DB_NAME")
     try:
         conn = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            database='penyu',
-            password='Hertzman01'
+            host=host,
+            user=user,
+            database=database,
+            password=password
         )
         return conn
     except Error as e:
