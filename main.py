@@ -36,7 +36,7 @@ def predict(x):
 
 # Function to get class name from prediction
 def getClass(id):
-    classes = ["Tuntong Laut","Kura-kura moncong babi", "Kura-kura Rote", "Tidak Dilindungi", ""]
+    classes = ["Tuntong Laut","Kura-kura moncong babi", "Kura-kura Rote", "Tidak Dilindungi"]
     return classes[id] if 0 <= id < len(classes) else ""
 
 # Function to create database connection
