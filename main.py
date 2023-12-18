@@ -20,7 +20,7 @@ with h5py.File(io.BytesIO(model_content), "r") as f:
 
 # Function to transform image for prediction
 def transform_image(image_bytes):
-    img = image.load_img(io.BytesIO(image_bytes), target_size=(400,400))
+    img = image.load_img(io.BytesIO(image_bytes), target_size=(224,224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x /= 255.0
