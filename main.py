@@ -28,16 +28,15 @@ def transform_image(image_bytes):
 
 # Function to make a prediction
 def predict(x):
-    predictions = model.predict(x)
-    predictions = tf.nn.softmax(predictions)
-    pred0 = predictions[0]
-    label0 = np.argmax(pred0)
-    return label0
+    prediction = model.predict(x)
+    # Assuming the model directly returns the string label
+    predicted_label = prediction[0]
+    return predicted_label
 
 # Function to get class name from prediction
-def getClass(id):
-    classes = ["Kura-kura Rote", "Tuntong Laut","Kura-kura moncong babi",  "Tidak Dilindungi"]
-    return classes[id] if 0 <= id < len(classes) else ""
+#def getClass(id):
+    #classes = ["Kura-kura Rote", "Tuntong Laut","Kura-kura moncong babi",  "Tidak Dilindungi"]
+    #return classes[id] if 0 <= id < len(classes) else ""
 
 # Function to create database connection
 def create_db_connection():
@@ -86,9 +85,8 @@ def main():
         try: 
             image_bytes = file.read()
             tensor = transform_image(image_bytes)
-            prediction = predict(tensor)
-            turtle_id = getClass(prediction)
-            turtle_data = get_turtle_data(turtle_id)
+            turtle_label = predict(tensor)  # Directly gets the turtle label as a string
+            turtle_data = get_turtle_data(turtle_label)
             if turtle_data:
                 return jsonify({
                     'response': 200,
