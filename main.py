@@ -36,7 +36,7 @@ def predict(x):
 
 # Function to get class name from prediction
 def getClass(id):
-    classes = ["Tuntong Laut","Kura-kura moncong babi", "Kura-kura Rote", "Tidak Dilindungi"]
+    classes = ["Kura-kura Rote", "Tuntong Laut","Kura-kura moncong babi",  "Tidak Dilindungi"]
     return classes[id] if 0 <= id < len(classes) else ""
 
 # Function to create database connection
@@ -57,7 +57,7 @@ def create_db_connection():
         print(f"Error connecting to MySQL Database: {e}")
         return None
 
-# Function to get plant data from database
+# Function to get turtle data from database
 def get_turtle_data(nama_lokal):
     conn = create_db_connection()
     if conn is not None:
