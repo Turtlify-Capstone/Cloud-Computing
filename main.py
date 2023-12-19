@@ -86,6 +86,8 @@ def main():
             image_bytes = file.read()
             tensor = transform_image(image_bytes)
             turtle_label = predict(tensor)  # Directly gets the turtle label as a string
+            if isinstance(turtle_label, np.ndarray):
+                turtle_label = turtle_label.tolist()
             turtle_data = get_turtle_data(turtle_label)
             if turtle_data:
                 return jsonify({
