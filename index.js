@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer');
 const multer = require('multer');
 const upload = multer();
 const FormData = require('form-data');
+const axios = require('axios');
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
