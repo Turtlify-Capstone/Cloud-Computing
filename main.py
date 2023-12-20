@@ -65,7 +65,12 @@ def get_turtle_data(nama_lokal):
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM DeskripsiPenyu WHERE nama_lokal = %s", (nama_lokal,))
             row = cursor.fetchone()
-            return row
+            if row:
+                column_names = [desc[0] for desc in cursor.description]
+                turtle_info = dict(zip(column_names, row))
+                return turtle_info
+            else:
+                return None
         except Error as e:
             print(f"Error: {e}")
         finally:
