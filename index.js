@@ -7,6 +7,7 @@ const { format } = require("util");
 const nodemailer = require('nodemailer');
 const multer = require('multer');
 const upload = multer();
+const FormData = require('form-data');
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -278,9 +279,12 @@ app.post('/UploadModel', upload.any(), async (req, res) => {
         // Use the first file in the array
         const file = req.files[0];
 
-        // Prepare the request for the model API
+        // Prepare the request for the model API using form-data
         const formData = new FormData();
-        formData.append('file', file.buffer, file.originalname);
+        formData.append('file', file.buffer, file.originalname, {
+            filename: file.originalname,
+            contentType: file.mimetype
+        });
 
         // Send the image to the model's API
         const response = await axios.post('https://turtlify-test-model-r7ear3dsma-et.a.run.app', formData, {
@@ -297,6 +301,7 @@ app.post('/UploadModel', upload.any(), async (req, res) => {
         res.status(500).send({ message: `Could not process the file. Error: ${err.message}` });
     }
 });
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
