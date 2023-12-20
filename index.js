@@ -266,6 +266,36 @@ app.get('/latlon-data', async (req, res) => {
   }
 });
 
+app.post('/UploadModel', upload.any(), async (req, res) => {
+    try {
+        // Check if any file is uploaded
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).send({ message: "No file uploaded!" });
+        }
+
+        // Use the first file in the array
+        const file = req.files[0];
+
+        // Prepare the request for the model API
+        const formData = new FormData();
+        formData.append('file', file.buffer, file.originalname);
+
+        // Send the image to the model's API
+        const response = await axios.post('https://turtlify-test-model-r7ear3dsma-et.a.run.app', formData, {
+            headers: {
+                ...formData.getHeaders(),
+            },
+        });
+
+        // Return the response from the model's API
+        res.status(200).send(response.data);
+
+    } catch (err) {
+        console.error('Error:', err.message);
+        res.status(500).send({ message: `Could not process the file. Error: ${err.message}` });
+    }
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
