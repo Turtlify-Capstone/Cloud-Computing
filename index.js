@@ -283,7 +283,7 @@ app.post('/UploadModel', upload.any(), async (req, res) => {
         formData.append('file', file.buffer, file.originalname);
 
         // Send the image to the model's API
-        const response = await axios.post('https://turtlify-test-model-r7ear3dsma-et.a.run.app', formData, {
+        const response = await axios.post('https://turtlify-test-model-r7ear3dsma-et.a.run.app/', formData, {
             headers: {
                 ...formData.getHeaders(),
             },
