@@ -228,6 +228,19 @@ app.get('/search', async (req, res) => {
   }
 });
 
+app.get('/latlon-data', async (req, res) => {
+  try {
+    const pool = await mysql.createPool(dbConfig);
+    // Replace 'YourTable' with your table name and column names as appropriate
+    const [rows] = await pool.query('SELECT latitude_column, longitude_column FROM YourTable'); 
+    res.json(rows);
+    await pool.end();
+  } catch (error) {
+    console.error('Error fetching lat/lon data:', error);
+    res.status(500).send('Error fetching lat/lon data');
+  }
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
