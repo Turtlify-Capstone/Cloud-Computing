@@ -5,6 +5,8 @@ const { spawn } = require('child_process');
 const { Storage } = require("@google-cloud/storage");
 const { format } = require("util");
 const nodemailer = require('nodemailer');
+const multer = require('multer');
+const upload = multer();
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -79,7 +81,7 @@ app.get('/FeedbackData', async (req, res) => {
   }
 });
 
-app.post('/upload', async(req, res) => {
+app.post('/UploadBucket', async(req, res) => {
   try {
     await processFile(req, res);
 
