@@ -175,7 +175,32 @@ app.post('/FeedbackEmail', async (req, res) => {
         console.log(error);
         return res.status(500).send({ message: 'Error sending email' });
       }
-      res.status(200).send({ message: 'Email sent successfully to you' });
+      res.status(200).send({ message: 'Feedback berhasil dikirim' });
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Error processing request');
+  }
+});
+
+app.post('/Report', async (req, res) => {
+  try {
+    const { userEmail, userMessage } = req.body;
+
+    let mailOptions = {
+      from: userEmail, 
+      to: 'ch2ps145@gmail.com', 
+      subject: 'New Message from User',
+      text: `Message from ${userEmail}: ${userMessage}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).send({ message: 'Error sending email' });
+      }
+      res.status(200).send({ message: 'Report berhasil dikirim' });
     });
 
   } catch (error) {
