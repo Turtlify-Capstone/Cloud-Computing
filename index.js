@@ -232,7 +232,7 @@ app.get('/latlon-data', async (req, res) => {
   try {
     const pool = await mysql.createPool(dbConfig);
     // Replace 'YourTable' with your table name and column names as appropriate
-    const [rows] = await pool.query('SELECT Latitude, Longitude FROM DeskripsiPenyu'); 
+    const [rows] = await pool.query('SELECT Latitude,Longitude FROM DeskripsiPenyu'); 
     res.json(rows);
     await pool.end();
   } catch (error) {
