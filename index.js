@@ -165,7 +165,7 @@ app.post('/FeedbackEmail', async (req, res) => {
 
     let mailOptions = {
       from: userEmail, 
-      to: 'baihaqirafli30@gmail.com', 
+      to: 'c004bsy3307@bangkit.academy', 
       subject: 'New Message from User',
       text: `Message from ${userEmail}: ${userMessage}`
     };
