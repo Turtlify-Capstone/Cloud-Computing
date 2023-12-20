@@ -82,24 +82,32 @@ def main():
     if request.method == "POST":
         file = request.files.get('file')
         if file is None or file.filename == "":
-            return jsonify({"error": "no file"})
-        try: 
+            return jsonify({"error": "No file uploaded"})
+
+        try:
             image_bytes = file.read()
             tensor = transform_image(image_bytes)
             prediction = predict(tensor)
-            turtle_id = getClass(prediction)
-            turtle_data = get_turtle_data(turtle_id)
-            if turtle_data:
-                return jsonify({
-                    'response': 200,
-                    'status': 'success',
-                    'data': turtle_data
-                })
-            else:
-                return jsonify({'response': 404, 'status': 'error', 'message': 'Turtle not found'})
+
+            # Get the class name from the prediction
+            class_name = getClass(prediction)
+
+            # Optional: Get additional turtle data from the database
+            turtle_data = get_turtle_data(class_name)
+            turtle_info = turtle_data if turtle_data else "No additional data found"
+
+            # Return the prediction and any additional data
+            return jsonify({
+                'response': 200,
+                'status': 'success',
+                'prediction': class_name,
+                'additional_data': turtle_info
+            })
+
         except Exception as e:
             return jsonify({"error": str(e)})
-    return "HELLO WORLD"
+
+    return "Hello World!"
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
