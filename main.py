@@ -24,7 +24,7 @@ def predict(x):
     predictions = model.predict(x)
     predictions = tf.nn.softmax(predictions)
     pred0 = predictions[0]
-    label0 = np.argmax(pred0, axis=1)
+    label0 = np.argmax(pred0)
     return label0
 
 # Function to get class name from prediction
