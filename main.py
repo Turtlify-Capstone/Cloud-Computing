@@ -12,7 +12,7 @@ import mysql.connector
 from mysql.connector import Error
 
 # Load TensorFlow model from URL
-url = "https://storage.googleapis.com/turtlifystorage/model_6_class.h5"
+url ="model_6_class.h5"
 response = requests.get(url)
 model_content = response.content
 with h5py.File(io.BytesIO(model_content), "r") as f:
