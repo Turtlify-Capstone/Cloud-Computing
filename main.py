@@ -7,8 +7,7 @@ from tensorflow.keras.applications.efficientnet import preprocess_input
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import requests
-import h5py
+from PIL import Image
 import mysql.connector
 from mysql.connector import Error
 
@@ -16,8 +15,8 @@ from mysql.connector import Error
 model = keras.models.load_model("model_6_class.h5")
 
 # Function to transform image for prediction
-def transform_image(image_bytes):
-    img = image.load_img(io.BytesIO(image_bytes), target_size=(224,224))
+def transform_image(image_path):
+    img = Image.open(image_path)
     x = np.array(img)
     x = preprocess_input(x)
     x = np.expand_dims(x, axis=0)
@@ -28,6 +27,8 @@ def predict(x):
     predictions = model.predict(x)
     #predictions = tf.nn.softmax(predictions)
     #pred0 = predictions[0]
+    if predictions.ndim > 1:
+        predictions = predictions.squeeze()
     label0 = np.argmax(predictions, axis=1)
     return label0
 
