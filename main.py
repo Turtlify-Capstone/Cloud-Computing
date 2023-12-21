@@ -32,7 +32,7 @@ def predict(x):
 
 # Function to get class name from prediction
 def getClass(id):
-    classes = ["Kura-kura moncong babi", "Kura-kura Rote", "Tidak Dilindungi", "Tuntong Laut"]
+    classes = ["Bulus Cina", "Common Snapping Turtle", "Kura-kura Brazil", "Kura-kura moncong babi", "Kura-kura Rote", "Tuntong Laut"]
     return classes[id] if 0 <= id < len(classes) else ""
 
 # Function to create database connection
@@ -97,11 +97,12 @@ def main():
             turtle_data = get_turtle_data(class_name)
             turtle_info = turtle_data if turtle_data else "No additional data found"
 
-            # Return the prediction and any additional data
+            # Return the prediction, raw label number, and any additional data
             return jsonify({
                 'response': 200,
                 'status': 'success',
                 'prediction': class_name,
+                'raw_label': prediction,  # Raw label number
                 'additional_data': turtle_info
             })
 
