@@ -12,11 +12,7 @@ import mysql.connector
 from mysql.connector import Error
 
 # Load TensorFlow model from URL
-url ="model_6_class.h5"
-response = requests.get(url)
-model_content = response.content
-with h5py.File(io.BytesIO(model_content), "r") as f:
-    model = keras.models.load_model(f)
+model = keras.models.load_model("model_6_class.h5")
 
 # Function to transform image for prediction
 def transform_image(image_bytes):
