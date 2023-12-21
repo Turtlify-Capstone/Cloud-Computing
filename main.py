@@ -3,6 +3,7 @@ import io
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.efficientnet import preprocess_input
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -17,17 +18,17 @@ model = keras.models.load_model("model_6_class.h5")
 # Function to transform image for prediction
 def transform_image(image_bytes):
     img = image.load_img(io.BytesIO(image_bytes), target_size=(224,224))
-    x = image.img_to_array(img)
+    x = np.array(img)
+    x = preprocess_input(x)
     x = np.expand_dims(x, axis=0)
-    x /= 255.0
     return x
 
 # Function to make a prediction
 def predict(x):
     predictions = model.predict(x)
-    predictions = tf.nn.softmax(predictions)
-    pred0 = predictions[0]
-    label0 = np.argmax(pred0)
+    #predictions = tf.nn.softmax(predictions)
+    #pred0 = predictions[0]
+    label0 = np.argmax(predictions, axis=1)
     return label0
 
 # Function to get class name from prediction
