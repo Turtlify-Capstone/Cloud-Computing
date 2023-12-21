@@ -3,11 +3,9 @@ import io
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.efficientnet import preprocess_input
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from PIL import Image
 import mysql.connector
 from mysql.connector import Error
 
@@ -16,7 +14,7 @@ model = keras.models.load_model("model_6_class.h5")
 
 # Function to transform image for prediction
 def transform_image(image_bytes):
-    img = Image.open(image_bytes)
+    img = image.load_img(io.BytesIO(image_bytes), target_size=(224,224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
