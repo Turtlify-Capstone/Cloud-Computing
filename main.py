@@ -15,20 +15,17 @@ from mysql.connector import Error
 model = keras.models.load_model("model_6_class.h5")
 
 # Function to transform image for prediction
-def transform_image(image_path):
-    img = Image.open(image_path)
-    x = np.array(img)
-    x = preprocess_input(x)
+def transform_image(image_bytes):
+    img = Image.open(image_bytes)
+    x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
 
 # Function to make a prediction
 def predict(x):
     predictions = model.predict(x)
-    #predictions = tf.nn.softmax(predictions)
-    #pred0 = predictions[0]
-    if predictions.ndim > 1:
-        predictions = predictions.squeeze()
+    predictions = tf.nn.softmax(predictions)
+    pred0 = predictions[0]
     label0 = np.argmax(predictions, axis=1)
     return label0
 
