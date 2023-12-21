@@ -90,6 +90,9 @@ def main():
             tensor = transform_image(image_bytes)
             prediction = predict(tensor)
 
+            if isinstance(prediction, np.int64):
+                prediction = int(prediction)
+
             # Get the class name from the prediction
             class_name = getClass(prediction)
 
