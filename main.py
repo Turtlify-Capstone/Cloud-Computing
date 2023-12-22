@@ -61,6 +61,12 @@ def get_turtle_data(nama_lokal):
             if row:
                 column_names = [desc[0] for desc in cursor.description]
                 turtle_info = dict(zip(column_names, row))
+
+                # Remove unwanted columns from the dictionary
+                unwanted_columns = ['id', 'Latitude', 'Longitude']
+                for col in unwanted_columns:
+                    turtle_info.pop(col, None)
+
                 return turtle_info
             else:
                 return None
@@ -70,6 +76,7 @@ def get_turtle_data(nama_lokal):
             cursor.close()
             conn.close()
     return None
+
 
 # Flask app setup
 app = Flask(__name__)
